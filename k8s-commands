@@ -51,6 +51,10 @@ To create delete a pod -
 
 	kubectl delete pod <PODNAME>
 
+To check replication controller - 
+	kubectl get rc
+	kubectl get replicationcontroller 
+	kubectl describe rc nginx-replication-controller 
 
 
 
