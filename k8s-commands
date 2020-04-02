@@ -85,3 +85,30 @@ to check services -
 
 	NSLOOKUP using dnsutils pod 
 	kubectl exec -it dnsutils -- nslookup my-headless-service 
+
+Blue green deployment - 
+
+	brew install gettext
+	brew link --force gettext 
+
+	Release code 1st (blue deployment)
+		
+		COLOR=blue TAGID=1.9.0 envsubst < deployment-blue-green.yaml| kubectl apply -f -  
+		
+		kubectl rollout status deployment nginx-deployment-blue  
+		
+		COLOR=blue envsubst < service-blue-green.yaml| kubectl apply -f -   
+
+		minikube service nginx-service-blue-green --url   
+
+	New Release (green  deployment)
+		
+		COLOR=green TAGID=1.15.4 envsubst < deployment-blue-green.yaml| kubectl apply -f -  
+
+		kubectl rollout status deployment nginx-deployment-green  
+
+		COLOR=green envsubst < service-blue-green.yaml| kubectl apply -f -   
+
+		kc delete deployment nginx-deployment-blue 
+
+	GERRN is live 

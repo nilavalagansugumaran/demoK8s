@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment-${COLOR}
+  labels:
+    app: nginx
+    color: ${COLOR}
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+      color: ${COLOR}
+  template:
+    metadata:
+      labels:
+        app: nginx
+        color: ${COLOR}
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:${TAGID}
+        ports:
+        - containerPort: 80 
+
