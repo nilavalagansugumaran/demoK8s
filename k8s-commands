@@ -78,4 +78,7 @@ to check services -
 	kubectl get endpoints
 	kubectl describe endpoints cluster-ip-service
 
-
+	port forwarding from local to service 
+		kubectl port-forward svc/cluster-ip-service 80:80  
+	To find minikube service URL for nodeport service - 
+		minikube service node-port-service --url  
