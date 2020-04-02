@@ -30,6 +30,8 @@ To list App k8s objects -
 To get all objects running in k8s
 
 	kubectl get all
+	kubectl get pods 
+	kubectl get pods -o wide 
 
 To create pod -
 	kubectl apply -f pod-example.yaml
@@ -55,6 +57,7 @@ To check replication controller -
 	kubectl get rc
 	kubectl get replicationcontroller 
 	kubectl describe rc nginx-replication-controller 
+	kubectl delete rc nginx-replication-controller 
 
 to check deployments 
 	kubectl get deployments 
@@ -66,7 +69,13 @@ to check deployments
 	
 	kubectl scale --replicas=2 deployment/nginx-deployment  
 	kubectl get hpa 
-	
+
     kubectl delete deployment nginx-deployment 
+
+to check services - 
+	kubectl get svc 
+	kubectl describe service cluster-ip-service 
+	kubectl get endpoints
+	kubectl describe endpoints cluster-ip-service
 
 
