@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myinitcontainerapp-pod
+  labels:
+    app: my-init-container-app
+spec:
+  containers:
+  - name: main-application
+    image: busybox
+    #resources:
+    #  limits:
+   #     memory: "200Mi"
+  #    requests:
+  #      memory: "100Mi"
+    command: ['sh' , '-c', 'echo Hello main container! && sleep 3600']
+  #  args: ["--vm", "1", "--vm-bytes", "150M", "--vm-hang", "1"]
+  initContainers:
+  - name: init-container-one
+    image: busybox
+    command: ['sh' , '-c', 'echo Hello INIT Container ONE! && sleep 5']
+  - name: init-container-two
+    image: busybox
+    command: ['sh' , '-c', 'echo Hello INIT Container TWO! && sleep 15']
+
