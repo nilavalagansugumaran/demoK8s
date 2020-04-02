@@ -82,3 +82,6 @@ to check services -
 		kubectl port-forward svc/cluster-ip-service 80:80  
 	To find minikube service URL for nodeport service - 
 		minikube service node-port-service --url  
+
+	NSLOOKUP using dnsutils pod 
+	kubectl exec -it dnsutils -- nslookup my-headless-service 
