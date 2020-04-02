@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: multicontainer-pod-example
+  labels:
+    app: multicontainer-pod-example
+spec:
+  containers:
+  - name: application-container-1
+    image: busybox
+    resources:
+      limits:
+        memory: "200Mi"
+      requests:
+        memory: "100Mi"    
+    command: ['sh' , '-c', 'echo Hello K8s one ! && sleep 3600']
+  - name: application-container-2
+    image: busybox
+    resources:
+      limits:
+        memory: "200Mi"
+      requests:
+        memory: "100Mi"
+    command: ['sh' , '-c', 'echo Hello K8s two! && sleep 3600']
