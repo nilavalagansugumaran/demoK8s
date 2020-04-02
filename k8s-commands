@@ -112,3 +112,9 @@ Blue green deployment -
 		kc delete deployment nginx-deployment-blue 
 
 	GERRN is live 
+
+
+Stateful sets - 
+	kubectl scale --replicas=4 statefulset/web  
+	 kc delete pvc www-web-0 www-web-2 www-web-3 www-web-1   
+	 kc get pvc 
