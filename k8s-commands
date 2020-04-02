@@ -31,6 +31,11 @@ To get all objects running in k8s
 
 	kubectl get all
 
+To create pod -
+	kubectl apply -f pod-example.yaml
+		(or)
+	kubectl create -f pod-example.yaml
+
 To describe a pod - 	
 	kubectl describe pod pod-example  -n default
 	kubectl get pod pod-example-new --output=yaml   
@@ -39,12 +44,12 @@ To check logs -
 	kubectl logs --tail=100 -f pod-example
 
 To get into the pod and run sh - 
-	kc exec -it pod-example-new  sh -n default  
-	kc exec -it pod-example-new -c <container-name> sh -n default  
+	kubectl exec -it pod-example-new  sh -n default  
+	kubectl exec -it pod-example-new -c <container-name> sh -n default  
 
+To create delete a pod -
 
-
-
+	kubectl delete pod <PODNAME>
 
 
 
