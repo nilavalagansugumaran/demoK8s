@@ -38,14 +38,14 @@ To create pod -
 
 To describe a pod - 	
 	kubectl describe pod pod-example  -n default
-	kubectl get pod pod-example-new --output=yaml   
+	kubectl get pod multicontainer-pod-example --output=yaml   
 	
 To check logs - 
 	kubectl logs --tail=100 -f pod-example
 
 To get into the pod and run sh - 
-	kubectl exec -it pod-example-new  sh -n default  
-	kubectl exec -it pod-example-new -c <container-name> sh -n default  
+	kubectl exec -it pod-example  sh -n default  
+	kubectl exec -it multicontainer-pod-example -c <container-name> sh -n default  
 
 To create delete a pod -
 
