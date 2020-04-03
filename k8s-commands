@@ -126,4 +126,7 @@ Jobs -
 	kubectl get jobs
 	kubectl delete job <job-name>
 	kubectl describe job <job-name>
+	
+	# To get ttl feature working to clean up jobs
+	minikube --feature-gates='TTLAfterFinished=true' 
 	 
