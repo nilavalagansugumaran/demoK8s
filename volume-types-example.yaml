@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myvolumeapp-pod
+  labels:
+    app: myvolumeapp
+spec:
+  containers:
+  - name: myapp-container
+    image: busybox
+    command: ['sh' , '-c', 'echo Hello K8s! && sleep 3600']
+    volumeMounts:
+      - name: configmap-vol
+        mountPath: /etc/config
+      - name: hostpath-vol-dir
+        mountPath: /test-pd
+      - name: hostpath-vol-dir-create
+        mountPath: /new
+      - name: empty-vol
+        mountPath: /empty
+      - name: secret-vol
+        mountPath: /mysecret
+      - name: hostsubpath-vol-dir-create
+        mountPath: /rootdir1
+        subPath: sub1 
+      - name: hostsubpath-vol-dir-create
+        mountPath: /rootdir2
+        subPath: sub2
+  volumes:
+    - name: configmap-vol
+      configMap:
+        name: simpleconfig
+    - name: hostpath-vol-dir
+      hostPath:
+        path: /data
+        type: Directory
+    - name: hostpath-vol-dir-create
+      hostPath:
+        path: /createNew
+        type: DirectoryOrCreate
+    - name: empty-vol
+      emptyDir: {}
+    - name: secret-vol
+      secret: 
+        secretName: my-user-creds 
+        items:
+        - key: MYSQL_USER
+          path: my-username        
+    - name: hostsubpath-vol-dir-create
+      hostPath:
+        path: /testSubPath
+        type: DirectoryOrCreate
+

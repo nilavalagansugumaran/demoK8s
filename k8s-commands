@@ -190,8 +190,14 @@ Secrets -
 
 	kubectl describe secret <name of the secret>
 
-name space 
+name space -
 	you can use resource quota object to limit the usage
-		
 
+volume types - 	
+	kc create configmap simpleconfig --from-literal some=thing --from-file user=my-conf.cnf
+
+	kubectl create secret generic my-user-creds --from-literal=MYSQL_USER=kube-user  --from-literal=MYSQL_PASSWORD=kube-pwd
+
+	
+	
 
