@@ -189,6 +189,9 @@ Secrets -
 	kubectl get secret
 
 	kubectl describe secret <name of the secret>
-	
+
+name space 
+	you can use resource quota object to limit the usage
+		
 
 
