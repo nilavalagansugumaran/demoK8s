@@ -126,7 +126,37 @@ Jobs -
 	kubectl get jobs
 	kubectl delete job <job-name>
 	kubectl describe job <job-name>
-	
+
 	# To get ttl feature working to clean up jobs
 	minikube --feature-gates='TTLAfterFinished=true' 
-	 
+
+Helm ---
+
+	Add a repo - 
+		helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+
+		helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com/
+
+	To create a chart 
+		helm create samplechart 
+
+	To validate 
+		helm lint . 
+
+		helm template --validate . 
+
+	To release 
+		helm package . 
+		helm install samplechart .  
+
+	to list releases
+		helm list 
+
+	To upgrade 
+		 helm upgrade --dry-run samplechart .   
+		 helm upgrade samplechart .    
+
+	To rollback 
+		helm rollback samplechart 1 
+		
+		
