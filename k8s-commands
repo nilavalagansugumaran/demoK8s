@@ -171,4 +171,13 @@ Ingress
 	kc get ingress
 	kc describe ingress <>
 
+ConfigMap
+
+kubectl create configmap my-conf-from-file --from-file=my-conf.cnf   
+kubectl create configmap my-conf-from-literal --from-literal some=thing
+kubectl get configmaps 
 		
+kubectl describe configmap my-conf-from-file 
+kubectl edit configmap my-conf-from-file
+
+

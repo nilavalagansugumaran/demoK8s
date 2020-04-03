@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: config-map-example-pod
+  labels:
+    app: config-map-example-pod
+spec:
+  containers:
+  - name: config-map-example-container
+    image: busybox
+    command: ['sh' , '-c', 'echo Hello K8s! && echo Log level:  $(LOG_LEVEL) && echo Log file:  $(LOG_FILE) && sleep 1200']
+    env:
+      - name: LOG_LEVEL
+        valueFrom:
+          configMapKeyRef:
+            name: log-levels-map
+            key: log.level
+      - name: LOG_FILE
+        valueFrom:
+          configMapKeyRef:
+            name: log-levels-map
+            key: log.filename
+    volumeMounts:
+    - mountPath: /tmp/
+      name: my-conf-to-volume           
+  volumes:
+  - configMap:
+      name: my-conf-from-file
+      items:
+        - key: my-conf.cnf
+          path: my-conf.cnf
+    name: my-conf-to-volume 
