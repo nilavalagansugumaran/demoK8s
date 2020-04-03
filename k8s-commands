@@ -119,4 +119,8 @@ Stateful sets -
 	 kc delete pvc www-web-0 www-web-2 www-web-3 www-web-1   
 	 kc get pvc 
 
+Jobs - 
+	kubectl get jobs
+	kubectl delete job <job-name>
+	kubectl describe job <job-name>
 	 

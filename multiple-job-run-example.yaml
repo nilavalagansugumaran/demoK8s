@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: multiple-job-run-example
+spec:
+  completions: 3 # number of times to run
+  ttlSecondsAfterFinished: 120
+  backoffLimit: 4 # number of retries before throwing error
+ # activeDeadlineSeconds: 5  # time to allow job to run
+  template:
+    spec:
+      containers:
+      - name: dabian
+        image: debian
+        command: ["/bin/bash",  "-c", "echo 'nila'"]
+      restartPolicy: OnFailure
+      #restartPolicy: Never
+
