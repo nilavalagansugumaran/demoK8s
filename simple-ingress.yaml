@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: simple-ingress
+spec:
+  rules:
+    - host: www.nila.com
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: cluster-ip-service
+            servicePort: 80
+        - path: '/ui'
+          backend:
+            serviceName: consul-ui
+            servicePort: 8500       
+  
+
