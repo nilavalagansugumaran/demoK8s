@@ -198,6 +198,10 @@ volume types -
 
 	kubectl create secret generic my-user-creds --from-literal=MYSQL_USER=kube-user  --from-literal=MYSQL_PASSWORD=kube-pwd
 
-	
+
+https://access.redhat.com/solutions/4367311
+	Out of Ephemeral storage - error 
+
+
 	
 
