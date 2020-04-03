@@ -1,0 +1,7 @@
+cluster:
+  enabled: true
+  slaveCount: 2
+sentinel:
+  enabled: true
+  usePassword: false
+usePassword: false
