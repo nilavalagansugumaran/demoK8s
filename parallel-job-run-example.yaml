@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: parallel-job-run-example
+spec:
+  completions: 12 # number of times to run
+  ttlSecondsAfterFinished: 120
+  parallelism: 4 # number of pods that can run in parallel
+  backoffLimit: 4 # number of retries before throwing error
+  #activeDeadlineSeconds: 5  # time to allow job to run
+  template:
+    spec:
+      containers:
+      - name: dabian
+        image: debian
+        command: ["/bin/bash",  "-c", "echo 'nila - parallel job run'"]
+      restartPolicy: OnFailure
+      #restartPolicy: Never
+
+
+
