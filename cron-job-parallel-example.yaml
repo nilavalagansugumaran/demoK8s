@@ -1,0 +1,22 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: cron-job-parallel-example
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      completions: 12
+      parallelism: 4
+      template:
+        spec:
+          containers:
+          - name: dabian
+            image: debian
+            command: ["/bin/bash",  "-c"]
+            args:
+              - echo 'nila';
+                echo `date`;
+                echo 'done';
+          restartPolicy: OnFailure
+

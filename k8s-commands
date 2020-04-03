@@ -33,6 +33,9 @@ To get all objects running in k8s
 	kubectl get pods 
 	kubectl get pods -o wide 
 
+editing an object 
+	kubectl edit <type> <name> 
+
 To create pod -
 	kubectl apply -f pod-example.yaml
 		(or)
