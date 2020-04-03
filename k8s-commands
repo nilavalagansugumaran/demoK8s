@@ -173,11 +173,22 @@ Ingress
 
 ConfigMap
 
-kubectl create configmap my-conf-from-file --from-file=my-conf.cnf   
-kubectl create configmap my-conf-from-literal --from-literal some=thing
-kubectl get configmaps 
-		
-kubectl describe configmap my-conf-from-file 
-kubectl edit configmap my-conf-from-file
+	kubectl create configmap my-conf-from-file --from-file=my-conf.cnf   
+	kubectl create configmap my-conf-from-literal --from-literal some=thing
+	kubectl get configmaps 
+			
+	kubectl describe configmap my-conf-from-file 
+	kubectl edit configmap my-conf-from-file
+
+Secrets - 
+
+	kubectl create secret generic my-user-creds  --from-literal=DB_ADMIN_USER=kube-user --from-literal=DB_ADMIN_PASSWORD=kube-pwd
+
+	kubectl create secret generic my-api-credentials --from-file=apiSecrets.yaml
+
+	kubectl get secret
+
+	kubectl describe secret <name of the secret>
+	
 
 
